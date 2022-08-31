@@ -1,0 +1,12 @@
+---
+- name: set no password
+  shell: "echo 'jenkins ALL=NOPASSWD: ALL' >> /etc/sudoers"
+
+# - name: curl resource
+#   shell: curl -sL https://deb.nodesource.com/setup_6.x | bash -
+
+# - name: get packages
+#   shell: apt-get install -y libltdl7 curl git-core unzip
+
+- name: delete list
+  shell: rm -rf /var/lib/apt/lists/*

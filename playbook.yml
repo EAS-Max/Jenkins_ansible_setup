@@ -1,6 +1,13 @@
-- hosts: max-jenkins
+- hosts: max-jenkins2
   vars_files:
     - vars/main.yml
   tasks:
     - name: Jenkins
       include_tasks: tasks/main.yml
+
+- hosts: max-jenkins2
+  vars_files:
+    - vars/main.yml
+  tasks:
+    - name: Jenkins config
+      include_tasks: tasks/config.yml

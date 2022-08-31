@@ -1,0 +1,19 @@
+jenkins:
+  systemMessage: "testing Configuration as code\n\n"
+tool:
+  git:
+    installations:
+      - name: git
+        home: /usr/local/bin/git
+
+credentials:
+  system:
+    domainCredentials:
+      - credentials:
+          - usernamePassword:
+              description: testCred
+              id: testCred
+              password: testCred
+              scope: GLOBAL
+              username: testCred
+# /tmp/config_demo.yml
