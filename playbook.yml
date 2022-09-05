@@ -5,9 +5,38 @@
     - name: Jenkins
       include_tasks: tasks/main.yml
 
-- hosts: max-jenkins2
-  vars_files:
-    - vars/main.yml
-  tasks:
-    - name: Jenkins config
-      include_tasks: tasks/config.yml
+# - hosts: max-jenkins2
+#   vars_files:
+#     - vars/main.yml
+#   tasks:
+#     - name: Jenkins config
+#       include_tasks: tasks/config.yml
+
+# - hosts: max-jenkins2
+#   tasks:
+#     - name: casc role tasks
+#       include_role:
+#         name: casc
+
+- name: "Deploy jcasc"
+  become: true
+  hosts: max-jenkins2
+  vars:
+    jenkins_casc_config_path_configure: true
+    jenkins_casc_config_path: "/var/lib/jenkins/jcasc-folder"
+    jenkins_casc_config_fileglobs:
+      # - config_demo.yml
+      - configtest2.yml
+    jenkins_casc_admin_password: "{{ jenkins_password.stdout_lines[0] }}"
+    # jenkins_plugins_present:
+    #   - name: cloudbees-folder
+    #     version: "6.8"
+    #   - name: branch-api
+    #     version: "2.4.0"
+    #   - name: structs
+    #     version: "1.19"
+    # jenkins_plugins_absent:
+    #   - name: job-dsl
+    #     version: "1.81"
+  roles:
+    - casc

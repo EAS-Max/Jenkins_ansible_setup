@@ -1,19 +1,88 @@
-jenkins:
-  systemMessage: "testing Configuration as code\n\n"
-tool:
-  git:
-    installations:
-      - name: git
-        home: /usr/local/bin/git
-
 credentials:
   system:
     domainCredentials:
       - credentials:
           - usernamePassword:
-              description: testCred
-              id: testCred
-              password: testCred
+              description: "testCred2"
+              id: "testCred2"
+              password: "{AQAAABAAAAAQBuMijqeXTUO4lv9I8iCEXSEHSfVl16Neme0NI0zgE34=}"
               scope: GLOBAL
-              username: testCred
-# /tmp/config_demo.yml
+              username: "testCred2"
+jenkins:
+  agentProtocols:
+    - "JNLP4-connect"
+    - "Ping"
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: false
+  disableRememberMe: false
+  labelAtoms:
+    - name: "built-in"
+  markupFormatter: "plainText"
+  mode: NORMAL
+  myViewsTabBar: "standard"
+  numExecutors: 2
+  primaryView:
+    all:
+      name: "all"
+  projectNamingStrategy: "standard"
+  quietPeriod: 5
+  remotingSecurity:
+    enabled: true
+  scmCheckoutRetryCount: 0
+  securityRealm:
+    local:
+      allowsSignup: false
+      enableCaptcha: false
+      users:
+        - id: "admin"
+          name: "admin"
+          properties:
+            - "apiToken"
+            - "myView"
+            - "timezone"
+  slaveAgentPort: -1
+  systemMessage: |+
+    testing Configuration as code
+
+  updateCenter:
+    sites:
+      - id: "default"
+        url: "https://updates.jenkins.io/update-center.json"
+  views:
+    - all:
+        name: "all"
+  viewsTabBar: "standard"
+globalCredentialsConfiguration:
+  configuration:
+    providerFilter: "none"
+    typeFilter: "none"
+security:
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  globalJobDslSecurityConfiguration:
+    useScriptSecurity: true
+  sSHD:
+    port: -1
+unclassified:
+  buildDiscarders:
+    configuredBuildDiscarders:
+      - "jobBuildDiscarder"
+  casCGlobalConfig:
+    configurationPath: "/var/lib/jenkins/jcasc-folder/configtest2.yml"
+  fingerprints:
+    fingerprintCleanupDisabled: false
+    storage: "file"
+  location:
+    adminAddress: "address not configured yet <nobody@nowhere>"
+  pollSCM:
+    pollingThreadCount: 10
+tool:
+  mavenGlobalConfig:
+    globalSettingsProvider: "standard"
+    settingsProvider: "standard"

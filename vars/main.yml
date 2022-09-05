@@ -1,2 +1,18 @@
 ---
 # vars file for jenkins_master
+jenkins_plugins_jenkins_hostname: "{{ hostvars['max-jenkins2'].ansible_all_ipv4_addresses[0] }}"
+# jenkins_casc_plugins_present:
+#   - name: configuration-as-code
+#     version: "1.3"
+#   - name: configuration-as-code-support
+#     version: "1.3"
+# jenkins_plugins_present:
+#   - name: cloudbees-folder
+#     version: "6.8"
+#   - name: branch-api
+#     version: "2.4.0"
+#   - name: structs
+#     version: "1.19"
+# jenkins_plugins_absent:
+#   - name: job-dsl
+#     version: "1.81"

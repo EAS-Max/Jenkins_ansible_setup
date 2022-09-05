@@ -1,0 +1,15 @@
+jenkins:
+  systemMessage: "testing Configuration as code\n\n"
+
+credentials:
+  system:
+    domainCredentials:
+      - credentials:
+          - usernamePassword:
+              description: testCred3
+              id: testCred3
+              password: testCred3
+              scope: GLOBAL
+              username: testCred3
+# /tmp/config_demo.yml
+

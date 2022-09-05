@@ -1,0 +1,4 @@
+- src: https://github.com/wcm-io-devops/ansible-jenkins-configuration-as-code
+  scm: git
+  version: master
+  name: casc
